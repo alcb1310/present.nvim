@@ -153,12 +153,7 @@ M.start_presentation = function(opts)
     vim.api.nvim_buf_set_lines(state.floats.header.buf, 0, -1, false, { title })
     vim.api.nvim_buf_set_lines(state.floats.body.buf, 0, -1, false, slide.body)
 
-    local footer = string.format(
-      "  %d / %d | %s",
-      state.current_slide,
-      #state.parsed.slides,
-      state.title
-    )
+    local footer = string.format("  %d / %d | %s", state.current_slide, #state.parsed.slides, state.title)
 
     vim.api.nvim_buf_set_lines(state.floats.footer.buf, 0, -1, false, { footer })
   end
@@ -231,5 +226,7 @@ end)
 --   "# World",
 --   "this is another thing",
 -- })
+--
+M._parse_slides = parse_slides
 
 return M
